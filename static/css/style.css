@@ -78,7 +78,7 @@ h2 {
     width: 30%;
 }
 
-/* Use a media query to add a breakpoint at 500px: */
+/* Use a media query to add a breakpoint at 1200px: */
 @media screen and (max-width: 1200px) {
     .column {
         width: 360px;
