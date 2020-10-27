@@ -67,7 +67,6 @@ h2 {
 }
 
 .column {
-    float: left;
     width: 100%;
 }
 
@@ -77,4 +76,11 @@ h2 {
 
 .column-30 {
     width: 30%;
+}
+
+/* Use a media query to add a breakpoint at 500px: */
+@media screen and (max-width: 1200px) {
+    .column {
+        width: 360px;
+    }
 }
