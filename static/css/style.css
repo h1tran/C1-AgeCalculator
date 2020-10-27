@@ -1,0 +1,80 @@
+body, html {
+    font-size: 10px;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+}
+
+h2 {
+    font-size: 1.4rem;
+    padding: 0;
+    margin: 0;
+}
+
+.roboto {
+    font-family: 'Roboto', sans-serif;
+}
+
+.border {
+    border: solid 1px black;
+    padding: 1rem 4rem 1rem 4rem;
+}
+
+.flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    row-gap: 2rem;
+    column-gap: 2rem;
+}
+
+.flex-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flex-row {
+    flex-direction: row;
+}
+
+.flex-column {
+    flex-direction: column;
+}
+
+.body-height {
+    height: 100%;
+}
+
+.row-height {
+    height: 12rem;
+}
+
+.left {
+    text-align: left;
+}
+
+.center {
+    text-align: center;
+}
+
+.header {
+    font-size: 2.4rem;
+}
+
+.margin-12 {
+    margin: 1.2rem;
+}
+
+.column {
+    float: left;
+    width: 100%;
+}
+
+.column-50 {
+    width: 50%;
+}
+
+.column-30 {
+    width: 30%;
+}
