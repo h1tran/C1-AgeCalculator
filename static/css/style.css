@@ -78,6 +78,25 @@ h2 {
     width: 30%;
 }
 
+.button-styling {
+    padding: 1rem 2rem;
+    border-radius: 0px;
+    border: solid 1px black;
+    background-color: white;
+    transition: all .2s ease-in-out;
+}
+
+.button-styling:focus {
+    outline-width: 0;
+    border: solid 1px rgb(216, 60, 60);
+}
+
+.button-styling:hover {
+    outline-width: 0;
+    border: solid 1px rgb(216, 60, 60);
+    transition: all .2s ease-in-out;
+}
+
 /* Use a media query to add a breakpoint at 1200px: */
 @media screen and (max-width: 1200px) {
     .column {

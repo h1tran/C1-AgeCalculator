@@ -7,19 +7,19 @@ function ageInDays() {
     var n_1 = promptDate();
     var n_2 = new Date;
 
-    while (checkDate(n_1)) {
+    if (checkDate(n_1)) {
         alert('Please enter valid user entry dates.');
-        n_1 = promptDate();
-    } 
+    }
+    else { 
+        let utcDate_1 = new Date(Date.UTC(n_1[0], n_1[1], n_1[2]));
+        let utcDate_2 = new Date(Date.UTC(n_2.getUTCFullYear(), n_2.getUTCMonth(), n_2.getUTCDate()));
 
-    const utcDate_1 = new Date(Date.UTC(n_1[0], n_1[1], n_1[2]));
-    const utcDate_2 = new Date(Date.UTC(n_2.getUTCFullYear(), n_2.getUTCMonth(), n_2.getUTCDate()));
-
-    /* Calculate the difference in the two dates using UTC Date format.
-    UTC never observes DST (Daylight Savings Time), so there is no need to observe time sensitive information. */
-    var difference = Math.floor(utcDate_2 - utcDate_1) / _MS_PER_DAY;
-    document.getElementById("birthDate").innerHTML = utcDate_1.toUTCString();
-    document.getElementById("result").innerHTML = difference;
+        /* Calculate the difference in the two dates using UTC Date format.
+        UTC never observes DST (Daylight Savings Time), so there is no need to observe time sensitive information. */
+        var difference = Math.floor(utcDate_2 - utcDate_1) / _MS_PER_DAY;
+        document.getElementById("birthDate").innerHTML = utcDate_1.toUTCString();
+        document.getElementById("result").innerHTML = difference;
+    }
 
 }
 
