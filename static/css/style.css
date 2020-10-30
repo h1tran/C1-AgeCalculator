@@ -17,7 +17,7 @@ h2 {
 
 .border {
     border: solid 1px black;
-    padding: 1rem 4rem 1rem 4rem;
+    padding: 1rem 4rem;
 }
 
 .flex {
@@ -43,7 +43,7 @@ h2 {
 }
 
 .body-height {
-    height: 100%;
+    min-height: 100%;
 }
 
 .row-height {
@@ -67,8 +67,12 @@ h2 {
     margin: 1.2rem;
 }
 
+.margin-v12 {
+    margin: 1.2rem 0;
+}
+
 .margin-top {
-    margin-top: 0.6rem;
+    margin-top: 1.2rem;
 }
 
 .padding-menu {
@@ -81,6 +85,7 @@ h2 {
 
 .column-50 {
     width: 50%;
+    padding: 1rem 3rem;
 }
 
 .column-30 {
@@ -122,7 +127,6 @@ h2 {
 
 .arrow-styling {
     padding: 1rem 1.4rem;
-    margin-top: 0.7rem;
 }
 
 .calendar {
@@ -140,7 +144,7 @@ h2 {
 }
 
 .show {
-    max-height: 1000px;
+    max-height: 1000rem;
     opacity: 1;
     margin: 0rem 0;
     pointer-events: all;

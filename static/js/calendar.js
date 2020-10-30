@@ -7,13 +7,52 @@ const monthNames = ["January", "February", "March", "April", "May", "June", "Jul
 var d = new Date();
 var presentYear = d.getFullYear();
 var currentYear = d.getFullYear();
-var presentMonth = d.getFullYear();
+var presentMonth = d.getMonth();
 var currentMonth = d.getMonth();
+var presentDay = d.getUTCDate();
 var tbl = document.createElement("table");
 tbl.setAttribute('border', '1');
 tbl.setAttribute('style', 'margin: 1.4rem 1.4rem 0 1.4rem');
 tbl.setAttribute('style', 'border-collapse: collapse');
 var tbody = document.createElement("tbody");
+
+var btnJT = document.createElement("button");
+btnJT.classList.add('roboto', 'button-styling');
+btnJT.style.width = '100%';
+btnJT.textContent = 'Jump to:';
+btnJT.setAttribute('style', 'margin-top: 1.4rem');
+document.getElementById("jumpTo").appendChild(btnJT);
+btnJT.addEventListener("click", function () {
+    clearTable();
+    createCalendar(selectYear.value, selectMonth.value);
+})
+
+var selectMonth = document.createElement('select');
+selectMonth.classList.add('margin-top');
+selectMonth.setAttribute('style', 'padding: 1rem; outline-width: 0px');
+for (let a = 0; a < monthNames.length; a++) {
+    var option = document.createElement('option');
+    option.value = a;
+    option.textContent = monthNames[a];
+    if (a == presentMonth) {
+        option.setAttribute('selected', 'selected');
+    }
+    selectMonth.appendChild(option);
+}
+document.getElementById("jumpTo").appendChild(selectMonth);
+
+var selectYear = document.createElement('select');
+selectYear.classList.add('margin-top');
+selectYear.setAttribute('style', 'padding: 1rem; outline-width: 0px');
+for (let b = presentYear; b >= 1900; b--) {
+    var option = document.createElement('option');
+    option.value = b;
+    option.textContent = b;
+    selectYear.appendChild(option);
+}
+selectYear.value = currentYear;
+document.getElementById("jumpTo").appendChild(selectYear);
+
 
 function ageInDays() {
     if (!tbl.classList.contains("table-toggle")) {
@@ -26,6 +65,9 @@ function ageInDays() {
 function prev() {
     clearTable();
     currentMonth--;
+    if (currentYear <= 1990) {
+        currentMonth++;
+    }
     if (currentMonth < 0) {
         currentMonth = 11;
         currentYear--;
@@ -36,9 +78,14 @@ function prev() {
 function next() {
     clearTable();
     currentMonth++;
-    if (currentMonth > 11) {
-        currentMonth = 0;
-        currentYear++;
+    if (currentMonth > presentMonth && currentYear >= presentYear) {
+        currentMonth--;
+    }
+    else {
+        if (currentMonth > 11) {
+            currentMonth = 0;
+            currentYear++;
+        }
     }
     createCalendar(currentYear, currentMonth);
 }
@@ -47,6 +94,7 @@ function resetAgeInDays() {
     checkShow();
     currentYear = d.getFullYear();
     currentMonth = d.getMonth();
+    document.getElementById("birthDate").innerHTML = "N/A";
     document.getElementById("result").innerHTML = "N/A";
 }
 
@@ -98,7 +146,7 @@ function createCalendar(y, m) {
             }
             else {
                 dayCount++;
-                if (dayCount <= firstDay || (dayCount - firstDay) > daysInMonth) {
+                if (dayCount <= firstDay || (dayCount - firstDay) > daysInMonth || (dayCount - firstDay) > presentDay) {
                     btn.textContent = "";
                     btn.setAttribute('style', 'pointer-events: none; background-color: white; border: 0px');
                 }
@@ -135,6 +183,7 @@ function calculateAgeInDays(day) {
         /* Calculate the difference in the two dates using UTC Date format.
         UTC never observes DST (Daylight Savings Time), so there is no need to observe time sensitive information. */
         var difference = Math.floor(utcDate_2 - utcDate_1) / _MS_PER_DAY;
+        document.getElementById("birthDate").innerHTML = monthNames[n_1.getMonth()] + " " + day + ", " + currentYear;
         document.getElementById("result").innerHTML = difference;
     }
 

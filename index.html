@@ -9,10 +9,10 @@
     <link rel="stylesheet" href="./static/css/style.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap">
     <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.6.0/css/all.css">
+    <script src="./static/js/calendar.js" defer></script>
 </head>
 
 <body>
-    <script src="./static/js/calendar.js"></script>
     <div class="flex roboto body-height">
         <div class="flex flex-column column-30">
             <div class="flex flex-row column">
@@ -29,19 +29,31 @@
                 <div class="table-content center flex-content flex-column border row-height column padding-menu">
                     <div class="flex flex-row">
                         <i class="button-styling border arrow-styling fas fa-chevron-left" onclick="prev()"></i>
-                        <h2 class="margin-top border">Please choose your birthday.</h2>
+                        <h2 class="border">Please select your birthday.</h2>
                         <i id="next" class="button-styling border arrow-styling fas fa-chevron-right" onclick="next()"></i>
                     </div>
                     <div id="table"></div>
+                    <div id="jumpTo" class="flex"></div>
                 </div>
             </div>
             <div class="flex flex-row column">
-                <div class="center flex-content flex-column border row-height column-50">
-                    <h2>You were born:</h2>
+                <div class="center flex-content flex-column border column-50 row-height">
+                    <h2>You were born on:</h2>
+                    <h2 id="birthDate" class="header margin-v12">N/A</h2>
+                    <h2>Happy Birthday!</h2>
+                </div>
+                <div class="center flex-content flex-column border column-50 row-height">
+                    <h2>You share a birthday with:</h2>
+                    <h2 id="celebrity" class="header margin-top">N/A</h2>
+                </div>
+            </div>
+            <div class="flex flex-row column">
+                <div class="center flex-content flex-column border row-height column">
+                    <h2>That was</h2>
                     <h2 id="result" class="header margin-12">N/A</h2>
                     <h2>days ago.</h2>
                 </div>
-                <div class="center flex flex-column border row-height">
+                <div class="center flex flex-column border row-height column-30">
                     <i class="fas fa-gifts fa-6x"></i>
                 </div>
             </div>
