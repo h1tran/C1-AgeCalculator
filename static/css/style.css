@@ -47,7 +47,8 @@ h2 {
 }
 
 .row-height {
-    height: 12rem;
+    min-height: 12rem;
+    height: 100%;
 }
 
 .left {
@@ -66,6 +67,14 @@ h2 {
     margin: 1.2rem;
 }
 
+.margin-top {
+    margin-top: 0.6rem;
+}
+
+.padding-menu {
+    padding: 1.2rem 0;
+}
+
 .column {
     width: 100%;
 }
@@ -78,12 +87,23 @@ h2 {
     width: 30%;
 }
 
+.table-content {
+    padding: 2rem 0;
+}
+
+#table {
+    margin-top: 1rem;
+}
+
 .button-styling {
-    padding: 1rem 2rem;
-    border-radius: 0px;
-    border: solid 1px black;
-    background-color: white;
+    padding: 1.2rem 3rem;
+    border-radius: 0.4rem;
+    border: solid 1px rgb(0, 0, 0);
+    color: white;
+    font-size: 1.2rem;
+    background-color: rgb(32, 160, 32);
     transition: all .2s ease-in-out;
+    cursor: pointer;
 }
 
 .button-styling:focus {
@@ -92,13 +112,44 @@ h2 {
 
 .button-styling:hover {
     outline-width: 0;
-    border: solid 1px rgb(216, 60, 60);
-    transition: all .2s ease-in-out;
+    background-color: rgb(38, 226, 38);
+    transition: all .2rgb(25, 158, 25)
 }
 
-/* Use a media query to add a breakpoint at 1200px: */
-@media screen and (max-width: 1200px) {
+.button-styling:active {
+    background-color: rgb(32, 160, 32);
+}
+
+.arrow-styling {
+    padding: 1rem 1.4rem;
+    margin-top: 0.7rem;
+}
+
+.calendar {
+    padding: 1rem 0.2rem;
+    border: 0px;
+    border-radius: 0px;
+}
+
+.dropdown-content {
+    max-height: 0;
+    opacity: 0;
+    margin: -1rem 0;
+    pointer-events: none;
+    transition: all 0.75s ease-in-out, width 0s, margin 0.25s 0.75s;
+}
+
+.show {
+    max-height: 1000px;
+    opacity: 1;
+    margin: 0rem 0;
+    pointer-events: all;
+    transition: all 0.75s ease-in-out, width 0s, margin 0.25s 0.25s;
+}
+
+/* Use a media query to add a breakpoint: */
+@media screen and (max-width: 1340px) {
     .column {
-        width: 360px;
+        width: 400px;
     }
 }
