@@ -24,6 +24,8 @@ btnJT.setAttribute('style', 'margin-top: 1.4rem');
 document.getElementById("jumpTo").appendChild(btnJT);
 btnJT.addEventListener("click", function () {
     clearTable();
+    currentMonth = selectMonth.value;
+    currentYear = selectYear.value;
     createCalendar(selectYear.value, selectMonth.value);
 })
 
