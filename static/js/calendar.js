@@ -96,6 +96,8 @@ function resetAgeInDays() {
     checkShow();
     currentYear = d.getFullYear();
     currentMonth = d.getMonth();
+    selectYear.value = currentYear;
+    selectMonth.selectedIndex = currentMonth;
     document.getElementById("birthDate").innerHTML = "N/A";
     document.getElementById("result").innerHTML = "N/A";
 }
@@ -212,9 +214,10 @@ function checkDate(n_1) {
 }
 
 function checkShow() {
-    if (document.getElementById("dropdownShow").classList.contains("show"))
+    if (document.getElementById("dropdownShow").classList.contains("show")) {
         document.getElementById("dropdownShow").classList.remove("show");
     setTimeout(function() {
         clearTable()
     }, 750);
+    }
 }
