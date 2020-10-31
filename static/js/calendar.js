@@ -67,7 +67,7 @@ function ageInDays() {
 function prev() {
     clearTable();
     currentMonth--;
-    if (currentYear <= 1990) {
+    if (currentMonth <= 0 && currentYear <= 1900) {
         currentMonth++;
     }
     if (currentMonth < 0) {
