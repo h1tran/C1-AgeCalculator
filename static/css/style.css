@@ -148,7 +148,7 @@ h2 {
     opacity: 1;
     margin: 0rem 0;
     pointer-events: all;
-    transition: all 0.75s 0.25s ease-in-out, width 0s, margin 0.25s 0.25s;
+    transition: all 0.75s 0.25s ease-in-out, width 0s, margin 0.75s 0.25s;
 }
 
 /* Use a media query to add a breakpoint: */
