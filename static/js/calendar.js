@@ -152,7 +152,7 @@ function createCalendar(y, m) {
             }
             else {
                 dayCount++;
-                if (dayCount <= firstDay || (dayCount - firstDay) > daysInMonth || ((dayCount - firstDay) > presentDay && currentMonth == presentMonth)) {
+                if (dayCount <= firstDay || (dayCount - firstDay) > daysInMonth || ((dayCount - firstDay) > presentDay && currentMonth == presentMonth && currentYear == presentYear)) {
                     btn.textContent = "";
                     btn.setAttribute('style', 'pointer-events: none; background-color: white; border: 0px');
                 }
