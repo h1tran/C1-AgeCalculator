@@ -23,10 +23,12 @@ btnJT.textContent = 'Jump to:';
 btnJT.setAttribute('style', 'margin-top: 1.4rem');
 document.getElementById("jumpTo").appendChild(btnJT);
 btnJT.addEventListener("click", function () {
-    clearTable();
-    currentMonth = selectMonth.value;
-    currentYear = selectYear.value;
-    createCalendar(selectYear.value, selectMonth.value);
+    if (selectMonth.value <= presentMonth && selectYear.value <= presentYear) {
+        clearTable();
+        currentMonth = selectMonth.value;
+        currentYear = selectYear.value;
+        createCalendar(selectYear.value, selectMonth.value);
+    }
 })
 
 var selectMonth = document.createElement('select');
@@ -150,7 +152,7 @@ function createCalendar(y, m) {
             }
             else {
                 dayCount++;
-                if (dayCount <= firstDay || (dayCount - firstDay) > daysInMonth || (dayCount - firstDay) > presentDay) {
+                if (dayCount <= firstDay || (dayCount - firstDay) > daysInMonth || ((dayCount - firstDay) > presentDay && currentMonth == presentMonth)) {
                     btn.textContent = "";
                     btn.setAttribute('style', 'pointer-events: none; background-color: white; border: 0px');
                 }
