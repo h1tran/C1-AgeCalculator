@@ -59,6 +59,7 @@ document.getElementById("jumpTo").appendChild(selectYear);
 
 
 function ageInDays() {
+    clearTable();
     if (!tbl.classList.contains("table-toggle")) {
         tbl.classList.add("table-toggle");
         createCalendar(currentYear, currentMonth);
